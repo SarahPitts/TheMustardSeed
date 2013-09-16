@@ -1,6 +1,7 @@
 var express = require('express')
   , engine = require('ejs-locals')
-  , app = express();
+  , app = express()
+  , sermons = require('./data/sermons').data;
 
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
@@ -23,13 +24,13 @@ res.render('index.ejs', {title: 'Clever Kitchens'});
 
  
 
-app.get('/recipes', function(req, res){
+app.get('/sermons', function(req, res){
 
-res.render('boilerplate.ejs', {
+res.render('sermons.ejs', {
 
-title: 'Clever Kitchens - Recipes',
+title: 'Sister Christian - Sermons',
 
-body: '<h1>All Recipes</h1>'
+sermons: sermons
 
 });
 
@@ -37,9 +38,31 @@ body: '<h1>All Recipes</h1>'
 
  
 
-app.get('/recipes/:title', function(req, res) {
+app.get('/sermons/:title', function(req, res) {
 
-res.send('<h1>' + req.params.title + '</h1>');
+var data = sermons.filter(function (sermons) {
+
+return (sermons.url === req.params.title);
+
+});
+
+ 
+
+if (data.length > 0) {
+
+data = data[0];
+
+data.title = 'Sister Christian - Sermons';
+
+ 
+
+res.render('sermon.ejs', data);
+
+} else {
+
+res.status(404).render('error.ejs', {title: 'Sermons Not Found'});
+
+}
 
 });
 

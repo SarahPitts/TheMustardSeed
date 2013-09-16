@@ -1,0 +1,15 @@
+<h1>All Sermons</h1>
+
+ 
+
+<ul>
+
+<% sermons.forEach(function(sermon){ %>
+
+<li><a href="/sermons/<%= sermon.url %>"><%= sermon.name %></a></li>
+
+<% }) %>
+
+</ul>
+
+<a href="/">Return to homepage</a>
