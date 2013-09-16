@@ -2,9 +2,11 @@ exports.data = [
 
 {
 
-'url': 'judgement',
+'url': 'judgement by Fuerst',
 
-'name': 'Judgement',
+'name': 'Judgement by Fuerst',
+
+'category': 'Judgement',
 
 'author': 'Tom Fuerst',
 
@@ -14,9 +16,11 @@ exports.data = [
 
 {
 
-'url': 'judgement',
+'url': 'judgement by Hazzard',
 
-'name': 'Judgement',
+'name': 'Judgement by Hazzard',
+
+'category': 'Judgement',
 
 'author': 'Henry Hazzard',
 
