@@ -1,35 +1,56 @@
+var express = require('express')
+  , engine = require('ejs-locals')
+  , app = express();
 
-/**
- * Module dependencies.
- */
+// use ejs-locals for all ejs templates:
+app.engine('ejs', engine);
 
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
+app.set('views',__dirname + '/views');
+app.set('view engine', 'ejs'); // so you can render('index')
 
-var app = express();
+// render 'index' into 'boilerplate':
+//app.get('/',function(req,res,next){
+//  res.render('index', { what: 'best', who: 'me' });
+//});
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+ 
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+app.get('/', function(req, res){
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+res.render('index.ejs', {title: 'Clever Kitchens'});
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
 });
+
+ 
+
+app.get('/recipes', function(req, res){
+
+res.render('boilerplate.ejs', {
+
+title: 'Clever Kitchens - Recipes',
+
+body: '<h1>All Recipes</h1>'
+
+});
+
+});
+
+ 
+
+app.get('/recipes/:title', function(req, res) {
+
+res.send('<h1>' + req.params.title + '</h1>');
+
+});
+
+ 
+
+app.get('/*', function(req, res) {
+
+res.status(404).render('error.ejs', {title: 'Error'});
+
+});
+
+ 
+
+app.listen(3000);
