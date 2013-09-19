@@ -7,6 +7,7 @@ var express = require('express')
 app.engine('ejs', engine);
 
 app.set('views',__dirname + '/views');
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs'); // so you can render('index')
 
 // render 'index' into 'boilerplate':
@@ -18,7 +19,13 @@ app.set('view engine', 'ejs'); // so you can render('index')
 
 app.get('/', function(req, res){
 
-res.render('index.ejs', {title: 'Clever Kitchens'});
+res.render('index.ejs', {title: 'The Mustard Seed'});
+
+});
+
+app.get('/commandments', function(req, res){
+
+res.render('commandments.ejs', {title: 'The Mustard Seed - Commandments'});
 
 });
 
@@ -28,7 +35,7 @@ app.get('/sermons', function(req, res){
 
 res.render('sermons.ejs', {
 
-title: 'Sister Christian - Sermons',
+title: 'The Mustard Seed - Sermons',
 
 sermons: sermons
 
@@ -52,7 +59,7 @@ if (data.length > 0) {
 
 data = data[0];
 
-data.title = 'Sister Christian - Sermons';
+data.title = 'The Mustard Seed - Sermons';
 
  
 
