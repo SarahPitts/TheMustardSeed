@@ -3,6 +3,11 @@ var express = require('express')
   , app = express()
   , sermons = require('./data/sermons').data;
 
+var compass = require('node-compass');
+	app.configure(function() {
+	    app.use(compass());
+	});
+
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
 
