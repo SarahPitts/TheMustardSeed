@@ -17,16 +17,13 @@
 @import "compass/css3/opacity";
 
 #header {
-		background: $charcoal;
-		text-align: left;
-		margin-top: -40px;
-		padding: 20px;
-  		@include single-box-shadow;
+		width:800px;
+		text-align: center;
+		margin-top: 30px;
 		h1 {
 		color: $eggshell;
 		font-size: 70px;
 		  @include single-text-shadow(2px, 2px);
-		margin: 40px 0 0 $marginH;
 		}
 		h2 {
 		color: $charcoal;
@@ -93,7 +90,7 @@ html {
 	background-color: $eggshell;
 	@include border-radius(10px, 10px);
   	@include single-box-shadow;
-  	@include opacity(0.65);
+  	@include opacity(0.45);
   	p {
   	line-height: 1.5em;
   	}
