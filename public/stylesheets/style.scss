@@ -35,26 +35,24 @@
 	}
 
 #footer {
-		background: $charcoal;
-		text-align: center;
-		font-size: 12px;
-  		@include single-box-shadow;
-  		@include opacity(0.65);
-  		position: fixed;
-    	bottom: 0;
-    	width: 100%;
-		p {
-		color: $eggshell;
-		font-weight: bold;
-		padding: 10px;  
-		}
-		a {
-		color: $eggshell;
-		font-weight: bold;
-		padding: 10px; 
-		text-decoration: underline; 
-		}
+	background: $eggshell;
+	text-align: center;
+	font-size: 12px;
+	@include single-box-shadow;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	p {
+	color: $charcoal;
+	font-weight: bold;
 	}
+	a {
+	color: $charcoal;
+	font-weight: bold;
+	text-decoration: underline;
+	}
+}
 
 a {
 color: $charcoal;
@@ -71,6 +69,7 @@ margin: 10px 0 10px 10px;
 
 html {
 	body {
+	background: image-url("canvas.jpg"); 
 	background-color: $sky;
 	height: 100%;
 	}
