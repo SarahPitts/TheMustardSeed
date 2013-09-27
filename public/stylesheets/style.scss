@@ -17,7 +17,7 @@
 @import "compass/css3/opacity";
 
 #header {
-		background: image-url("seedHeader.gif"); 
+		background: image-url("seedHeader.png"); 
 		width:800px;
 		height:300px;
 		text-align: center;
@@ -59,6 +59,7 @@
 html {
 	body {
 	background: image-url("canvas.jpg"); 
+	background-attachment:fixed;
 	background-color: $sky;
 	height: 100%;
 	}
