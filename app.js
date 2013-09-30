@@ -34,6 +34,12 @@ res.render('commandments.ejs', {title: 'The Mustard Seed - Commandments'});
 
 });
 
+app.get('/series', function(req, res){
+
+res.render('series.ejs', {title: 'The Mustard Seed - Sermons by Series'});
+
+});
+
  
 
 app.get('/sermons', function(req, res){
@@ -41,6 +47,17 @@ app.get('/sermons', function(req, res){
 res.render('sermons.ejs', {
 
 title: 'The Mustard Seed - Sermons',
+
+sermons: sermons
+
+});
+});
+
+app.get('/authors', function(req, res){
+
+res.render('authors.ejs', {
+
+title: 'The Mustard Seed - Sermons by Author',
 
 sermons: sermons
 

@@ -2,13 +2,15 @@
 <% script('app.js') -%>
 <% stylesheet('public/stylesheets/style.css') -%>
 
-<h1>Debunking Sermons</h1>
+<h1>A Debunking - Why you say you don't go to church</h1>
+
+ 
 
 <ul>
 
 <% sermons.forEach(function(sermon){ %>
 
-<li><a href="/sermons/<%= sermon.url %>"><%= sermon.name %> - <%= sermon.author %></a></li>
+<li><a href="/sermons/<%= sermon.url %>"><%= sermon.author %> - <%= sermon.name %></a></li>
 
 <% }) %>
 
