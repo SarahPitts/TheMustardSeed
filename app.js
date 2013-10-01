@@ -103,7 +103,11 @@ res.status(404).render('error.ejs', {title: 'Error'});
 
 });
 
+dir.on('error', function (err) {
+  console.log('dir error', err);
+});
 
+server.listen(process.env.PORT || 3000);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
