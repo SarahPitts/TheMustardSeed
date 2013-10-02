@@ -9,6 +9,9 @@ var compass = require('node-compass');
 	    app.use(compass());
 	});
 
+var spawn = require('child_process').spawn;
+var git = spawn('git');
+
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
 
