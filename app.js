@@ -112,3 +112,5 @@ http.createServer(app).listen(app.get('port'), function(){
 // and available as process.env.PORT
 var port = process.env.PORT || CONFIG.port;
 app.listen(port);
+
+heroku ps:scale web=1
