@@ -107,3 +107,8 @@ res.status(404).render('error.ejs', {title: 'Error'});
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+// when on Heroku, port will be exported to an environment variable
+// and available as process.env.PORT
+var port = process.env.PORT || CONFIG.port;
+app.listen(port);
