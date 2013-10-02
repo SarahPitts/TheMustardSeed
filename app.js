@@ -9,9 +9,6 @@ var compass = require('node-compass');
 	    app.use(compass());
 	});
 
-var spawn = require('child_process').spawn;
-var git = spawn('git');
-
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
 
@@ -98,13 +95,24 @@ res.status(404).render('error.ejs', {title: 'Sermons Not Found'});
 }
 
 });
-
  
 
 app.get('/*', function(req, res) {
 
 res.status(404).render('error.ejs', {title: 'Error'});
 
+});
+
+
+var toReadStream = require('spawn-to-readstream'),
+    spawn        = require('child_process').spawn;
+
+toReadStream(spawn('ls', ['-lah'])).on('error', function(err) {
+  throw err;
+}).on('end', function() {
+  console.log('~~~ DONE ~~~');
+}).on('data', function(data) {
+  console.log('ls data :::', data.toString());
 });
 
 http.createServer(app).listen(app.get('port'), function(){
