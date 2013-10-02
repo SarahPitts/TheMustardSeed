@@ -1,5 +1,6 @@
 var express = require('express')
   , engine = require('ejs-locals')
+  , http = require('http')
   , app = express()
   , sermons = require('./data/sermons').data;
 
