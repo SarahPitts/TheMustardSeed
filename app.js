@@ -103,18 +103,6 @@ res.status(404).render('error.ejs', {title: 'Error'});
 
 });
 
-
-var toReadStream = require('spawn-to-readstream'),
-    spawn        = require('child_process').spawn;
-
-toReadStream(spawn('ls', ['-lah'])).on('error', function(err) {
-  throw err;
-}).on('end', function() {
-  console.log('~~~ DONE ~~~');
-}).on('data', function(data) {
-  console.log('ls data :::', data.toString());
-});
-
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
