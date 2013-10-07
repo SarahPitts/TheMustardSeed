@@ -6,7 +6,7 @@ var express = require('express')
 
 var compass = require('node-compass');
 	app.configure(function() {
-	    app.use(compass());
+	    /app.use(compass());/
 	});
 
 //push this
